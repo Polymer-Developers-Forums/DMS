@@ -1,0 +1,158 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/neon-animation/web-animations.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="create-demand">
+  <template>
+    <style include="shared-styles">
+       :host {
+        display: block;
+
+        padding: 10px;
+      }
+
+      .main-content {
+        margin: 0 auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 25px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
+      }
+
+      .display-left {
+        width: 47%;
+        float: left;
+      }
+
+      .display-right {
+        width: 47%;
+        float: right;
+      }
+
+      .display-clear {
+        clear: both;
+      }
+	  paper-button {
+  --paper-button: {
+    @apply(--layout-vertical);
+    @apply(--layout-center-center);
+  };
+}
+
+	  paper-button.indigo {
+    background-color: var(--paper-indigo-500);
+    color: white;
+    @apply(--layout-center-center);
+    --paper-button-raised-keyboard-focus: {
+      background-color: var(--paper-pink-a200) !important;
+      color: white !important;
+	  
+    };
+  }
+  paper-button.indigo:hover {
+    background-color: var(--paper-indigo-400);
+  }
+    </style>
+    <div class="main-content">
+      <p>New Demand</p>
+
+      <paper-dropdown-menu class="display-left" label="Opportunity Group">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <paper-item class="paper-item">Tactical</paper-item>
+          <paper-item class="paper-item">Logical</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <paper-dropdown-menu class="display-right" label="Opportunity Type">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <paper-item class="paper-item">Tactical</paper-item>
+          <paper-item class="paper-item">Logical</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <div class="display-clear"></div>
+      <paper-input class="display-left" type="date" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" name="oppDate" required auto-validate error-message="Opportunity date required" label="Demand Date"></paper-input>   
+      <paper-dropdown-menu class="display-right" label="Sales Spoc">
+          <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+            <paper-item class="paper-item">Mudit</paper-item>
+            <paper-item class="paper-item">Rajesh</paper-item>
+          </paper-listbox>
+        </paper-dropdown-menu>
+      <div class="display-clear"></div>
+      <br/>
+      <paper-dropdown-menu class="display-left" label="Country">
+          <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_countrySelected">
+            <paper-item class="paper-item">Netherlands</paper-item>
+            <paper-item class="paper-item">Spain</paper-item>
+          </paper-listbox>
+        </paper-dropdown-menu>
+        <paper-dropdown-menu class="display-right" label="City">
+          <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_citySelected">
+            <paper-item class="paper-item">Amsterdam</paper-item>
+            <paper-item class="paper-item">Rotterdam</paper-item>
+			 <paper-item class="paper-item">The Hague</paper-item>
+			 <paper-item class="paper-item">Utrecht </paper-item>
+			
+          </paper-listbox>
+        </paper-dropdown-menu>
+        <div class="display-clear"></div>
+
+        <paper-dropdown-menu class="display-left" label="Domain">
+            <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+              <paper-item class="paper-item">Omni Channel</paper-item>
+              <paper-item class="paper-item">Omni</paper-item>
+            </paper-listbox>
+          </paper-dropdown-menu>
+          <paper-dropdown-menu class="display-right" label="Portfolio">
+            <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+              <paper-item class="paper-item">Building Blocks</paper-item>
+              <paper-item class="paper-item">Building Blocks</paper-item>
+            </paper-listbox>
+          </paper-dropdown-menu>
+          <div class="display-clear"></div>
+          <br/>
+          <paper-dropdown-menu class="display-left" label="Skill Category">
+              <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+                <paper-item class="paper-item">Full Stack UI</paper-item>
+                <paper-item class="paper-item">Full Stack Java</paper-item>
+              </paper-listbox>
+            </paper-dropdown-menu>
+            <div class="display-clear"></div>
+
+            <paper-dropdown-menu class="display-left" label="Primary Skill">
+                <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+                  <paper-item class="paper-item">Polymer</paper-item>
+                  <paper-item class="paper-item">Angular</paper-item>
+                </paper-listbox>
+              </paper-dropdown-menu>
+              <paper-dropdown-menu class="display-right" label="Secondary Skill">
+                <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+                  <paper-item class="paper-item">Angular</paper-item>
+                  <paper-item class="paper-item">Polymer</paper-item>
+                </paper-listbox>
+              </paper-dropdown-menu>
+              <div class="display-clear"></div>
+
+    </div>
+	<paper-button raised class="indigo"><iron-icon icon="favorite"></iron-icon>Submit</paper-button>
+	
+  </template>
+
+  <script>
+    class CreateDemand extends Polymer.Element {
+      static get is() { return 'create-demand'; }
+    }
+
+    window.customElements.define(CreateDemand.is, CreateDemand);
+  </script>
+</dom-module>

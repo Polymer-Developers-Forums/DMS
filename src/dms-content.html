@@ -1,0 +1,247 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="my-icons.html">
+
+<link rel="import" href="components/create-demand.html">
+<link rel="lazy-import" href="components/dashboard.html">
+<link rel="lazy-import" href="components/settings.html">
+<link rel="import" href="my-view404.html">
+
+
+<dom-module id="dms-content">
+  <template>
+    <style>
+       :host {
+        --app-primary-color: #4285f4;
+        --app-secondary-color: black;
+        display: block;
+      }
+      .header{
+                 background: #006cb7;
+                width: 100%;
+                height: 60px;
+                margin: -7px 0 0 -7px;
+         }
+		 .heading {
+    float: left;
+    color: white;
+}
+
+.user {
+    float: right;
+    color: white;
+    margin-right: 20px;
+    width: 10%;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+         .logo{
+                 color: white;
+                font-weight: bold;
+                float: left;
+                width: 25%;
+                margin-left: 4%;
+         }
+         .col-left{
+           float: left;
+           width:15%;
+           color:darkgray;
+           background-color:#666565;
+           margin: 0 0 0 -7px;
+           height: 700px;
+           position: absolute;
+         }
+          .col-left .title{
+         
+             text-align: center;
+             vertical-align: middle;
+             text-decoration: none;
+			       padding:18px;
+          }
+		   .col-left .title h5{margin-top:0px;}
+     .col-middle{
+           float:left;
+           width:59%;
+		   margin-left:14%;
+           padding: 15px 0 15px 15px;
+           background-color: #F8F9F9;
+           height: 670px;
+         }
+         .col-right{
+           float:right;
+           width:25%;
+           background-color:lightgray;
+           height: 700px;
+         }
+		 i.fa.fa-user-circle{
+	float: left;
+    margin-top: 21px;
+    margin-right: 10px;
+	}
+	input[type="date" i]{margin-left:11%;}
+	.footer{
+                 background: #006cb7;
+                width: 101%;
+                height: 60px;
+                
+         }
+		 
+		 .Demand-box{border:1px solid #000; margin:20px; padding:20px;}
+		 
+    </style>
+
+    <app-location route="{{route}}" url-space-regex="^[[rootPath]]"></app-location>
+    <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+    <header>
+        <div class="container">
+            <div class="header">
+             <div class="logo"><h3>HCL</h3></div><div class="heading"><h3>Demand Management System</h3></div>
+             <div class="user"><i class="fa fa-user-circle" aria-hidden="true"></i>
+                  <h5>Thiru N<h5></div>
+            </div>
+            <div>
+    </header>
+    <section>
+    <div class="col-left">
+                    <div class="title active">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        <h5><a>Create Demand</a></h5>
+                    </div>
+                    <div class="seprator"></div>
+                     <div class="title">
+					 <i class="fa fa-line-chart" aria-hidden="true"></i>
+                        <h5><a>Dashboard</a></h5>
+                    </div>
+                     <div class="seprator"></div>
+					 <div class="title">
+					 <i class="fa fa-line-chart" aria-hidden="true"></i>
+                        <h5><a>User profile</a></h5>
+                    </div>
+					<div class="seprator"></div>
+					 <div class="title">
+					<i class="fa fa-cog" aria-hidden="true"></i>
+                        <h5><a>Settings</a></h5>
+                    </div>
+                </div>
+        <div class="col-middle">
+            <create-demand></create-demand>
+        </div>
+         <div class="col-right">
+                    <div>&nbsp;<br/></div>
+                     <div>
+                     <label class="label">No. of Positions</label>
+					 <paper-input label="1000" required></paper-input>
+                        
+                </div>
+				
+				<div>
+				<label class="label">Demand Viability</label>
+				
+				<section class="Demand-box">
+				
+				   <paper-dropdown-menu class="display-left" label="Hot">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <paper-item class="paper-item">10</paper-item>
+          <paper-item class="paper-item">20</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+	  
+	   <paper-dropdown-menu class="display-left" label="Cold">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <paper-item class="paper-item">10</paper-item>
+          <paper-item class="paper-item">20</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+	  
+	   <paper-dropdown-menu class="display-left" label="Warm">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <paper-item class="paper-item">10</paper-item>
+          <paper-item class="paper-item">20</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+	  
+
+	  
+	  
+                     
+</section>
+
+ <paper-dropdown-menu class="display-left" label="Demand Status">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <paper-item class="paper-item">Demand</paper-item>
+          <paper-item class="paper-item">Awaiting Resumes</paper-item>
+		  <paper-item class="paper-item">Canceled</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+
+				
+				</div>
+				</div>
+    </section>
+
+
+    <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="my-view404" role="main">
+    </iron-pages>
+  </template>
+
+<script>
+    class DmsContent extends Polymer.Element {
+      static get is() { return 'dms-content'; }
+
+      static get properties() {
+        return {
+          page: {
+            type: String,
+            reflectToAttribute: true,
+            observer: '_pageChanged',
+          },
+          routeData: Object,
+          subroute: String,
+          // This shouldn't be neccessary, but the Analyzer isn't picking up
+          // Polymer.Element#rootPath
+          rootPath: String,
+        };
+      }
+
+      static get observers() {
+        return [
+          '_routePageChanged(routeData.page)',
+        ];
+      }
+
+      _routePageChanged(page) {
+        // If no page was found in the route data, page will be an empty string.
+        // Deault to 'create-demand' in that case.
+        this.page = page || 'create-demand';
+
+        // Close a non-persistent drawer when the page & route are changed.
+      }
+
+      _pageChanged(page) {
+        // Load page import on demand. Show 404 page if fails
+        var resolvedPageUrl = this.resolveUrl('components/' +page + '.html');
+        Polymer.importHref(
+          resolvedPageUrl,
+          null,
+          this._showPage404.bind(this),
+          true);
+      }
+
+      _showPage404() {
+        this.page = 'my-view404';
+      }
+    }
+    window.customElements.define(DmsContent.is, DmsContent);
+  </script>
+</dom-module>
