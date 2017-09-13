@@ -44,113 +44,348 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .display-clear {
         clear: both;
       }
-	  paper-button {
-  --paper-button: {
-    @apply(--layout-vertical);
-    @apply(--layout-center-center);
-  };
-}
 
-	  paper-button.indigo {
-    background-color: var(--paper-indigo-500);
-    color: white;
-    @apply(--layout-center-center);
-    --paper-button-raised-keyboard-focus: {
-      background-color: var(--paper-pink-a200) !important;
-      color: white !important;
-	  
-    };
-  }
-  paper-button.indigo:hover {
-    background-color: var(--paper-indigo-400);
-  }
+      .col-right {
+        float: right;
+        width: 25%;
+        background-color: lightgray;
+        height: 700px;
+        position: absolute;
+        margin-left: 56.5%;
+        margin-top: -50px;
+      }
+
+      i.fa.fa-user-circle {
+        float: left;
+        margin-top: 21px;
+        margin-right: 10px;
+      }
+
+      input[type="date" i] {
+        margin-left: 11%;
+      }
+
+      .footer {
+        background: #006cb7;
+        width: 101%;
+        height: 60px;
+      }
+
+      .Demand-box {
+        border: 1px solid #000;
+        margin: 20px;
+        padding: 20px;
+      }
+
+
+      paper-button {
+        --paper-button: {
+          @apply(--layout-vertical);
+          @apply(--layout-center-center);
+        }
+        ;
+      }
+
+      paper-button.indigo {
+        background-color: var(--paper-indigo-500);
+        color: white;
+        @apply(--layout-center-center);
+        --paper-button-raised-keyboard-focus: {
+          background-color: var(--paper-pink-a200) !important;
+          color: white !important;
+        }
+        ;
+      }
+
+      paper-button.indigo:hover {
+        background-color: var(--paper-indigo-400);
+      }
     </style>
     <div class="main-content">
-      <p>New Demand</p>
+      <div>
+      <div style="float:left; width:100%">
+      <p>NEW DEMAND / CREATE CANDIDATE : </p>
 
-      <paper-dropdown-menu class="display-left" label="Opportunity Group">
-        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
-          <paper-item class="paper-item">Tactical</paper-item>
-          <paper-item class="paper-item">Logical</paper-item>
+      <paper-dropdown-menu class="display-left" label="Client Engagement *">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_clientEngSelected">
+          <paper-item class="paper-item">ING Netherlands</paper-item>
+          <paper-item class="paper-item">ING Australia</paper-item>
         </paper-listbox>
       </paper-dropdown-menu>
-      <paper-dropdown-menu class="display-right" label="Opportunity Type">
+
+      <paper-dropdown-menu class="display-right" label="Opportunity Group *">
         <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
           <paper-item class="paper-item">Tactical</paper-item>
-          <paper-item class="paper-item">Logical</paper-item>
+          <paper-item class="paper-item">Strategic</paper-item>
         </paper-listbox>
       </paper-dropdown-menu>
       <div class="display-clear"></div>
-      <paper-input class="display-left" type="date" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" name="oppDate" required auto-validate error-message="Opportunity date required" label="Demand Date"></paper-input>   
-      <paper-dropdown-menu class="display-right" label="Sales Spoc">
-          <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
-            <paper-item class="paper-item">Mudit</paper-item>
-            <paper-item class="paper-item">Rajesh</paper-item>
-          </paper-listbox>
-        </paper-dropdown-menu>
+
+      <paper-dropdown-menu class="display-left" label="Opportunity Type *">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <paper-item class="paper-item">Tactical</paper-item>
+          <paper-item class="paper-item">Strategic</paper-item>
+          <paper-item class="paper-item">ZKV Pega Squad</paper-item>
+          <paper-item class="paper-item">Dopndoz</paper-item>
+          <paper-item class="paper-item">Program Unite</paper-item>
+          <paper-item class="paper-item">Paul Jacob's - Pega</paper-item>
+          <paper-item class="paper-item">Web Squad</paper-item>
+          <paper-item class="paper-item">Virtusa Replacement</paper-item>
+          <paper-item class="paper-item">Legacy ASM</paper-item>
+          <paper-item class="paper-item">Helix</paper-item>
+          <paper-item class="paper-item">Pega Hotel-Tech Squad</paper-item>
+          <paper-item class="paper-item">Pega Hotel-Ops Squad</paper-item>
+          <paper-item class="paper-item">Contact Center Integration</paper-item>
+          <paper-item class="paper-item">Smart Rules</paper-item>
+
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <paper-input class="display-right" type="date" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" name="oppDate"
+        required auto-validate error-message="Demand date required" label="Demand Date *"></paper-input>
       <div class="display-clear"></div>
       <br/>
-      <paper-dropdown-menu class="display-left" label="Country">
-          <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_countrySelected">
-            <paper-item class="paper-item">Netherlands</paper-item>
-            <paper-item class="paper-item">Spain</paper-item>
+
+      <paper-dropdown-menu class="display-left" label="Country *">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_countrySelected">
+          <paper-item class="paper-item">Netherlands</paper-item>
+          <paper-item class="paper-item">Spain</paper-item>
+          <paper-item class="paper-item">Czech</paper-item>
+          <paper-item class="paper-item">Romania</paper-item>
+          <paper-item class="paper-item">Belgium</paper-item>
+          <paper-item class="paper-item">Germany</paper-item>
+          <paper-item class="paper-item">Poland</paper-item>
+          <paper-item class="paper-item">France</paper-item>
+          <paper-item class="paper-item">India</paper-item>
+          <paper-item class="paper-item">Australia</paper-item>
           </paper-listbox>
-        </paper-dropdown-menu>
-        <paper-dropdown-menu class="display-right" label="City">
-          <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_citySelected">
-            <paper-item class="paper-item">Amsterdam</paper-item>
-            <paper-item class="paper-item">Rotterdam</paper-item>
-			 <paper-item class="paper-item">The Hague</paper-item>
-			 <paper-item class="paper-item">Utrecht </paper-item>
-			
-          </paper-listbox>
-        </paper-dropdown-menu>
+      </paper-dropdown-menu>
+      
+      <paper-dropdown-menu class="display-right" label="City *">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_citySelected">
+          <!--<paper-item class="paper-item">Amsterdam</paper-item>
+          <paper-item class="paper-item">Rotterdam</paper-item>
+          <paper-item class="paper-item">The Hague</paper-item>
+          <paper-item class="paper-item">Utrecht </paper-item>-->
+          <template is="dom-repeat" items="{{cityList}}">
+            <paper-item class="paper-item">{{item}}</paper-item>
+          </template>
+
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <div class="display-clear"></div>
+
+      <paper-dropdown-menu class="display-left" label="Domain *">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_domainSelected">
+          <paper-item class="paper-item">Omni Channel</paper-item>
+          <paper-item class="paper-item">Customer</paper-item>
+          <paper-item class="paper-item">Products</paper-item>
+          <paper-item class="paper-item">DBZ Betaken</paper-item>
+          <paper-item class="paper-item">Group Services</paper-item>
+          <paper-item class="paper-item">CDO</paper-item>
+          <paper-item class="paper-item">Infrastructure</paper-item>
+          <paper-item class="paper-item">Retail-Model Bank</paper-item>
+          <paper-item class="paper-item">DIBA</paper-item>
+          <paper-item class="paper-item">Group Services</paper-item>
+          <paper-item class="paper-item">Model Bank</paper-item>
+          <paper-item class="paper-item">Non-Model Bank</paper-item>
+          <paper-item class="paper-item">Retail-Model Bank</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <paper-dropdown-menu class="display-right" label="Portfolio *">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <template is="dom-repeat" items="{{portfolioList}}">
+            <paper-item class="paper-item">{{item}}</paper-item>
+          </template>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <div class="display-clear"></div>
+      <br/>
+      <paper-dropdown-menu class="display-left" label="Sales Spoc *">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <paper-item class="paper-item">Suba</paper-item>
+          <paper-item class="paper-item">Ishq</paper-item>
+          <paper-item class="paper-item">Satya</paper-item>
+          <paper-item class="paper-item">Deepak</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <paper-dropdown-menu class="display-right" label="Skill Category *">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_skillCategorySelected">
+          <paper-item class="paper-item">Full Stack UI</paper-item>
+          <paper-item class="paper-item">Full Stack Java</paper-item>
+          <paper-item class="paper-item">Ops</paper-item>
+          <paper-item class="paper-item">Pega</paper-item>
+          <paper-item class="paper-item">Others</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <div class="display-clear"></div>
+
+      <paper-dropdown-menu class="display-left" label="Primary Skill *">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <paper-item class="paper-item">Polymer</paper-item>
+          <paper-item class="paper-item">Angular</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <paper-dropdown-menu class="display-right" label="Secondary Skill *">
+        <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+          <paper-item class="paper-item">Angular</paper-item>
+          <paper-item class="paper-item">Polymer</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <div class="display-clear"></div>
+      <br/>
+      <paper-input label="SR Number " class="display-left"></paper-input>
+      <paper-input class="display-right" type="date" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" name="srDate"
+        required auto-validate error-message="SR Created date required" label="SR Created Date"></paper-input>
+      <div class="display-clear"></div>
+
+      <paper-button raised class="indigo">
+          <iron-icon icon="favorite"></iron-icon>Submit</paper-button>
+       </div>
+      <div class="col-right">
+        <paper-input label="No. of Positions *" required></paper-input>
+        <paper-input class="display-right" type="date" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" name="oppDate"
+          required auto-validate error-message="Demand date required" label="Demand Date *"></paper-input>
         <div class="display-clear"></div>
 
-        <paper-dropdown-menu class="display-left" label="Domain">
-            <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
-              <paper-item class="paper-item">Omni Channel</paper-item>
-              <paper-item class="paper-item">Omni</paper-item>
-            </paper-listbox>
-          </paper-dropdown-menu>
-          <paper-dropdown-menu class="display-right" label="Portfolio">
-            <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
-              <paper-item class="paper-item">Building Blocks</paper-item>
-              <paper-item class="paper-item">Building Blocks</paper-item>
-            </paper-listbox>
-          </paper-dropdown-menu>
-          <div class="display-clear"></div>
-          <br/>
-          <paper-dropdown-menu class="display-left" label="Skill Category">
+        <div>
+          <label class="label">Demand Viability</label>
+
+          <section class="Demand-box">
+
+            <paper-dropdown-menu class="display-left" label="Hot">
               <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
-                <paper-item class="paper-item">Full Stack UI</paper-item>
-                <paper-item class="paper-item">Full Stack Java</paper-item>
+                <paper-item class="paper-item">10</paper-item>
+                <paper-item class="paper-item">20</paper-item>
               </paper-listbox>
             </paper-dropdown-menu>
-            <div class="display-clear"></div>
 
-            <paper-dropdown-menu class="display-left" label="Primary Skill">
-                <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
-                  <paper-item class="paper-item">Polymer</paper-item>
-                  <paper-item class="paper-item">Angular</paper-item>
-                </paper-listbox>
-              </paper-dropdown-menu>
-              <paper-dropdown-menu class="display-right" label="Secondary Skill">
-                <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
-                  <paper-item class="paper-item">Angular</paper-item>
-                  <paper-item class="paper-item">Polymer</paper-item>
-                </paper-listbox>
-              </paper-dropdown-menu>
-              <div class="display-clear"></div>
+            <paper-dropdown-menu class="display-left" label="Cold">
+              <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+                <paper-item class="paper-item">10</paper-item>
+                <paper-item class="paper-item">20</paper-item>
+              </paper-listbox>
+            </paper-dropdown-menu>
 
+            <paper-dropdown-menu class="display-left" label="Warm">
+              <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+                <paper-item class="paper-item">10</paper-item>
+                <paper-item class="paper-item">20</paper-item>
+              </paper-listbox>
+            </paper-dropdown-menu>
+          </section>
+
+          <paper-dropdown-menu class="display-left" label="Demand Status">
+            <paper-listbox class="paper-listbox" slot="dropdown-content" on-iron-select="_oppGrpSelected">
+              <paper-item class="paper-item">Demand</paper-item>
+              <paper-item class="paper-item">Awaiting Resumes</paper-item>
+              <paper-item class="paper-item">Canceled</paper-item>
+            </paper-listbox>
+          </paper-dropdown-menu>
+
+       
+
+      </div>
+      </div>
     </div>
-	<paper-button raised class="indigo"><iron-icon icon="favorite"></iron-icon>Submit</paper-button>
-	
   </template>
 
   <script>
     class CreateDemand extends Polymer.Element {
       static get is() { return 'create-demand'; }
+      static get properties()
+      {
+        return{
+              cityList:{
+                type:Array
+              },
+              portfolioList:{
+                type:Array
+              }
+        }
+      }
+
+       _countrySelected (e) {
+    var selectedItem = e.target.selectedItem;
+    switch(selectedItem.innerText){
+         case 'Netherlands': 
+               this.cityList=new Array('Amsterdam','Leeuwarden');
+               break;
+          case 'Spain' :
+               this.cityList=new Array('Madrid');
+               break;
+          case 'Czech':
+               this.cityList=new Array('Prague');
+               break;
+          case 'Romania':
+               this.cityList=new Array('Bucharest');
+               break;
+          case 'Belgium':
+               this.cityList=new Array('Brussels');
+               break;
+          case 'Germany':
+               this.cityList=new Array('Frankfurt','Nuremberg');
+               break;
+          case 'Poland':
+               this.cityList=new Array('Warsow');
+               break;
+          case 'France':
+               this.cityList=new Array('Paris');
+               break;
+          case 'India':
+               this.cityList=new Array('Bangalore','Mumbai','Chennai','NCR - Delhi, Gurgaon, Noida, Faridabad','Kolkata','Pune','Lucknow','Nagpur','Madurai');
+               break;
+          case 'Australia':
+               this.cityList=new Array('Sydney','Melbourne');
+               break;
+    }
+    console.log(selectedItem.innerText);
+    console.log("cityList: " + this.cityList);
+  }
+   _domainSelected (e) {
+    var selectedItem = e.target.selectedItem;
+    switch(selectedItem.innerText){
+         case 'Omni Channel': 
+               this.portfolioList=new Array('Building Blocks','Cash','Experience','Experience 3');
+               break;
+          case 'Customer' :
+               this.portfolioList=new Array('Analytics','Arrears & Generics','Credit','KIM','Document Mgmt','Fraud & IAM');
+               break;
+          case 'Products':
+               this.portfolioList=new Array('Business Lending','Mortgages','Securities');
+               break;
+          case 'DBZ Betaken':
+               this.portfolioList=new Array('Consumer Lending','Core Banking','Credit','CTACS','Debit','Solution Selling','Solution Selling 1','Solution Selling 2');
+               break;
+          case 'Group Services':
+               this.portfolioList=new Array('Architecture','Group Services');
+               break;
+          case 'CDO':
+               this.portfolioList=new Array('CDO');
+               break;
+          case 'Infrastructure':
+               this.portfolioList=new Array('Architecture');
+               break;
+          case 'Retail-Model Bank':
+               this.portfolioList=new Array('Retail-Model Bank');
+               break;
+          case 'DIBA':
+               this.portfolioList=new Array('DIBA');
+               break;
+          case 'Group Services':
+               this.portfolioList=new Array('Group Services');
+               break;
+          case 'Model Bank':
+               this.portfolioList=new Array('Model Bank');
+               break;
+          case 'Non-Model Bank':
+               this.portfolioList=new Array('Non-Model Bank');
+               break;
+          case 'Retail-Model Bank':
+               this.portfolioList=new Array('Model Bank');
+               break;
+    }
+    
+  }
     }
 
     window.customElements.define(CreateDemand.is, CreateDemand);
